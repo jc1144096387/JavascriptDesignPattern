@@ -10,6 +10,7 @@ var observer = (function(){
       }else{
         _messages[type].push(fn);
       }
+      console.log("regist:"+type);
       return this;
     },
     //发布信息接口
@@ -28,6 +29,7 @@ var observer = (function(){
       for( ; i<len; i++){
         _messages[type][i].call(this,events);
       }
+      console.log("fire:"+type+" "+args);
       return this;
     },
     //移除信息接口
@@ -40,6 +42,7 @@ var observer = (function(){
           }
         }
       }
+      console.log("remove:"+type);
       return this;
     }
   }
@@ -103,7 +106,6 @@ function $(id){
       num: 1
     });
     text.value = '';
-    console.log(observer);
   });
 })();
 
